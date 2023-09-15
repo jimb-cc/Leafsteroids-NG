@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: cdae73e6ac035b74ba3380aef8784f57
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Nice Tango
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 75435ef0f4858924f960058a2b6c2d19, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
