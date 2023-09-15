@@ -26,11 +26,11 @@ public class CollisionDetection : MonoBehaviour
             {
                 scores.playerScore ++;
                 docTankHeight += (float)scores.playerScore/500;
-                var docTank = GameObject.Find("docTank");
-                var carCoM = GameObject.Find("CoM");
-                docTank.gameObject.transform.localScale = new Vector3(1,docTankHeight,3);
-                docTank.gameObject.transform.localPosition = new Vector3(0,(docTankHeight/2),0);
-                carCoM.gameObject.transform.localPosition = new Vector3(0,(docTankHeight*2),0);
+                var docTank = GameObject.Find("Shard1");
+                //var carCoM = GameObject.Find("CoM");
+                docTank.gameObject.transform.localScale = new Vector3(docTankHeight,docTankHeight,docTankHeight);
+                //docTank.gameObject.transform.localPosition = new Vector3(0,(docTankHeight/2),0);
+                //carCoM.gameObject.transform.localPosition = new Vector3(0,(docTankHeight*2),0);
                 var docScript = other.GetComponent<DocRot>();
                 docScript.Sparkle();
                 Debug.Log("Score = "+scores.playerScore.ToString());
