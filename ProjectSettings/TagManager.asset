@@ -7,6 +7,7 @@ TagManager:
   - document
   - Enemy
   - RDBMS
+  - shardPU
   layers:
   - Default
   - TransparentFX

@@ -18,7 +18,7 @@ public class CollisionDetection : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Name of the object: " + other.gameObject.name + " it's this things tag is: "+ this.tag);
+        Debug.Log("Name of the object: " + other.gameObject.name + " it's tag is " + other.gameObject.tag + "and this things tag is: " + this.tag);
 
         if (other.CompareTag("document"))
         {
@@ -33,8 +33,8 @@ public class CollisionDetection : MonoBehaviour
                 //carCoM.gameObject.transform.localPosition = new Vector3(0,(docTankHeight*2),0);
                 var docScript = other.GetComponent<DocRot>();
                 docScript.Sparkle();
-                Debug.Log("Score = "+scores.playerScore.ToString());
-                Debug.Log("carBodyHeight = "+docTankHeight.ToString());
+                //Debug.Log("Score = "+scores.playerScore.ToString());
+                //Debug.Log("carBodyHeight = "+docTankHeight.ToString());
                 uiman.UpdateScore(scores.playerScore);
             }
 
@@ -42,14 +42,15 @@ public class CollisionDetection : MonoBehaviour
             {
                 var docScript = other.GetComponent<DocRot>();
                 docScript.BadSparkle();
-                Debug.Log("destroyed by RDBMS - current RDBMS Score is " +scores.RDBMSScore);
+                //Debug.Log("destroyed by RDBMS - current RDBMS Score is " +scores.RDBMSScore);
                 scores.RDBMSScore ++;
                 uiman.UpdateRDBMSScore();
             }
-
-
         }
-         
+        else if (other.CompareTag("shardPU"))
+        {
+            Debug.Log("ShardPU hit by " + this.tag);
+            //Destroy(other);
+        }
     }
-
  }

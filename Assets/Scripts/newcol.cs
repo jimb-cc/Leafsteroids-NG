@@ -6,6 +6,6 @@ public class newcol : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Name of the object: " + other.gameObject.name);
+        Debug.Log("[Car Col]:Name of the object: " + other.gameObject.name);
     }
 }

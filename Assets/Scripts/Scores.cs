@@ -9,4 +9,6 @@ public class Scores : MonoBehaviour
 
     public int numDocs = 200;
     public int numRDBMS = 3;
+
+    public int numShards = 1;
 }

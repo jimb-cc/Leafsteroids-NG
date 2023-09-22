@@ -6,6 +6,7 @@ public class DocGen : MonoBehaviour
 {
     public GameObject doc;
     public GameObject rdbms;
+    public GameObject shardPU;
     public int min,max;
     public Scores scores;
 
@@ -14,6 +15,13 @@ public class DocGen : MonoBehaviour
     {
         PlaceDocs();
         PlaceRDBMS();
+        PlaceShardPickup();
+    }
+
+
+    void PlaceShardPickup()
+    {
+           shardPU = Instantiate(shardPU,GeneratedDocPostion(2f),Quaternion.identity); // using doc position becuase it's good enough
     }
 
 
@@ -21,7 +29,7 @@ public class DocGen : MonoBehaviour
     {
         for (int i=0; i<scores.numDocs; i++)
         {
-           doc = Instantiate(doc,GeneratedDocPostion(),Quaternion.identity);
+           doc = Instantiate(doc,GeneratedDocPostion(1f),Quaternion.identity);
            doc.name = "doc_"+i.ToString();
         }
         Debug.Log("Placed Docs");
@@ -38,13 +46,12 @@ public class DocGen : MonoBehaviour
         Debug.Log("Placed RDBMS");
     }
 
-    Vector3 GeneratedDocPostion()
+    Vector3 GeneratedDocPostion(float yPos)
     {
-        float x,y,z;
+        float x,z;
         x = UnityEngine.Random.Range(min,max);
-        y = 1;
         z = UnityEngine.Random.Range(min,max);     
-        return new Vector3(x,y,z);
+        return new Vector3(x,yPos,z);
     }
 
     Vector3 GeneratedRDBMSPostion()

@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 8734831972707284104}
   - component: {fileID: 7222057168838613402}
   - component: {fileID: 2011092056585139984}
-  - component: {fileID: 5835217055739323890}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: shardPU
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5835217055739323890
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2365975402104438360}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5916402628538374569
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,9 +93,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8465137517850120538}
   - component: {fileID: 7934243870597197432}
+  - component: {fileID: 7305977222886910664}
   m_Layer: 0
-  m_Name: Shard-pickup
-  m_TagString: Untagged
+  m_Name: shardPU
+  m_TagString: shardPU
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,9 +131,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a6a270bac5a4f428df0e55945c06ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 0
+  RotateSpeed: 20
   sparkle: {fileID: 0}
   beingCollected: 0
+--- !u!65 &7305977222886910664
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916402628538374569}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7545506013225208560
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,10 +158,9 @@ GameObject:
   - component: {fileID: 5622753105403889791}
   - component: {fileID: 8293567028081812636}
   - component: {fileID: 6589451572413355371}
-  - component: {fileID: 6386818299837912939}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: shardPU
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,19 +230,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6386818299837912939
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7545506013225208560}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7966222085669017968
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,10 +241,9 @@ GameObject:
   - component: {fileID: 9117845185189228950}
   - component: {fileID: 4007377228196886529}
   - component: {fileID: 5848501464033046442}
-  - component: {fileID: 1678278297036138976}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: shardPU
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,16 +313,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1678278297036138976
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7966222085669017968}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
