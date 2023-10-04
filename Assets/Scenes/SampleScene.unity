@@ -384,9 +384,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
+  playerMLevel: 
   RDBMSScore: 0
   numDocs: 200
   numRDBMS: 3
+  numShards: 1
+  docsInTank: 0
 --- !u!4 &285275637
 Transform:
   m_ObjectHideFlags: 0
@@ -1272,8 +1275,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 82
-  m_fontSizeBase: 82
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1515,7 +1518,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.5287766, y: -0.000000029208215, z: 0.000000018196662, w: 0.8487611}
+  m_LocalRotation: {x: 0.5287766, y: 0.000000029208215, z: -0.000000018196662, w: 0.8487611}
   m_LocalPosition: {x: 0.038205616, y: 34.69, z: -16.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3324,7 +3327,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021865466}
-  m_LocalRotation: {x: 0.5287766, y: -0.000000029208215, z: 0.000000018196662, w: 0.8487611}
+  m_LocalRotation: {x: 0.5287766, y: 0.000000029208215, z: -0.000000018196662, w: 0.8487611}
   m_LocalPosition: {x: 0.038205616, y: 34.69, z: -16.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

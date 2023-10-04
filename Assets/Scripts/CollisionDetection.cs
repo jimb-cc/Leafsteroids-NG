@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class CollisionDetection : MonoBehaviour
 {
@@ -25,17 +26,15 @@ public class CollisionDetection : MonoBehaviour
             if(this.tag=="Player")
             {
                 scores.playerScore ++;
-                docTankHeight += (float)scores.playerScore/500;
+                docTankHeight += (float)scores.docsInTank/500;
                 var docTank = GameObject.Find("Shard1");
-                //var carCoM = GameObject.Find("CoM");
                 docTank.gameObject.transform.localScale = new Vector3(docTankHeight,docTankHeight,docTankHeight);
-                //docTank.gameObject.transform.localPosition = new Vector3(0,(docTankHeight/2),0);
-                //carCoM.gameObject.transform.localPosition = new Vector3(0,(docTankHeight*2),0);
                 var docScript = other.GetComponent<DocRot>();
                 docScript.Sparkle();
-                //Debug.Log("Score = "+scores.playerScore.ToString());
-                //Debug.Log("carBodyHeight = "+docTankHeight.ToString());
-                uiman.UpdateScore(scores.playerScore);
+                //uiman.UpdateScore(scores.playerScore);
+                scores.UpdateScore(scores.playerScore, scores.numShards);
+                uiman.UpdateScoreUI();
+
             }
 
             if(this.tag=="RDBMS")
@@ -44,12 +43,13 @@ public class CollisionDetection : MonoBehaviour
                 docScript.BadSparkle();
                 //Debug.Log("destroyed by RDBMS - current RDBMS Score is " +scores.RDBMSScore);
                 scores.RDBMSScore ++;
-                uiman.UpdateRDBMSScore();
+                uiman.UpdateRDBMSScoreUI();
             }
         }
         else if (other.CompareTag("shardPU"))
         {
             Debug.Log("ShardPU hit by " + this.tag);
+            scores.numShards ++;
             //Destroy(other);
         }
     }
