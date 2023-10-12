@@ -16,6 +16,9 @@ public class DocGen : MonoBehaviour
         PlaceDocs();
         PlaceRDBMS();
         PlaceShardPickup();
+             PlaceShardPickup();
+                  PlaceShardPickup();
+                       PlaceShardPickup();
     }
 
 

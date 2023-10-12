@@ -7,7 +7,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class CollisionDetection : MonoBehaviour
 {
-    public float docTankHeight = 0.01f;
+    public float repsetSize = 0.01f;
 
     UIManager uiman;
     Scores scores;
@@ -19,19 +19,23 @@ public class CollisionDetection : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Name of the object: " + other.gameObject.name + " it's tag is " + other.gameObject.tag + "and this things tag is: " + this.tag);
-
+        //Debug.Log("Name of the object: " + other.gameObject.name + " it's tag is " + other.gameObject.tag + "and this things tag is: " + this.tag);
+        
+        var docScript = other.GetComponent<DocRot>();
+        
         if (other.CompareTag("document"))
         {
             if(this.tag=="Player")
             {
                 scores.playerScore ++;
-                docTankHeight += (float)scores.docsInTank/500;
-                var docTank = GameObject.Find("Shard1");
-                docTank.gameObject.transform.localScale = new Vector3(docTankHeight,docTankHeight,docTankHeight);
-                var docScript = other.GetComponent<DocRot>();
+                repsetSize = (float)scores.repsetSize/10;
+                var shards = GameObject.Find("Shards");
+                //shards.gameObject.transform.localScale = new Vector3(repsetSize,repsetSize,repsetSize);
+                shards.transform.GetChild(0).gameObject.transform.localScale = new Vector3(repsetSize,repsetSize,repsetSize);
+                shards.transform.GetChild(1).gameObject.transform.localScale = new Vector3(repsetSize,repsetSize,repsetSize);
+                shards.transform.GetChild(2).gameObject.transform.localScale = new Vector3(repsetSize,repsetSize,repsetSize);
+                shards.transform.GetChild(3).gameObject.transform.localScale = new Vector3(repsetSize,repsetSize,repsetSize);
                 docScript.Sparkle();
-                //uiman.UpdateScore(scores.playerScore);
                 scores.UpdateScore(scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
 
@@ -39,18 +43,21 @@ public class CollisionDetection : MonoBehaviour
 
             if(this.tag=="RDBMS")
             {
-                var docScript = other.GetComponent<DocRot>();
+                //var docScript = other.GetComponent<DocRot>();
                 docScript.BadSparkle();
-                //Debug.Log("destroyed by RDBMS - current RDBMS Score is " +scores.RDBMSScore);
                 scores.RDBMSScore ++;
                 uiman.UpdateRDBMSScoreUI();
             }
         }
+
         else if (other.CompareTag("shardPU"))
         {
             Debug.Log("ShardPU hit by " + this.tag);
+            
             scores.numShards ++;
-            //Destroy(other);
+            docScript.PUSparkle();
+            uiman.UpdateScoreUI();
+
         }
     }
  }

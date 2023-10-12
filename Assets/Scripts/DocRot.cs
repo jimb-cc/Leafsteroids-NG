@@ -39,8 +39,6 @@ public class DocRot : MonoBehaviour
 
     }
 
-
-
     public void Sparkle()
     {
         sparkle.Play();
@@ -52,4 +50,11 @@ public class DocRot : MonoBehaviour
         sparkle.Play();
         beingCollected = 1;
     }
+
+    public void PUSparkle()
+    {
+        //sparkle.Play();
+        beingCollected = 1;
+    }
+
 }
