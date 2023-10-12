@@ -14,7 +14,8 @@ public class Scores : MonoBehaviour
 
     public int numShards = 1;
     public int docsInTank = 0;
-    public int repsetSize = 1;
+    public float repsetSize = 1;
+    public int scaleFactor = 10;
 
 
 
@@ -22,28 +23,6 @@ public class Scores : MonoBehaviour
     {
 
         var shards = GameObject.Find("Shards");
-                
-        switch(numShards)
-        {
-            case 1: 
-            shards.transform.GetChild(0).gameObject.SetActive(true); 
-            break;
- 
-            case 2:
-            shards.transform.GetChild(1).gameObject.SetActive(true); 
-            break; 
-
-            case 3:
-            shards.transform.GetChild(2).gameObject.SetActive(true); 
-            break; 
-
-
-        }
-
-
-
-
-
         docsInTank = score/numShards;
         
         switch(docsInTank)
@@ -96,9 +75,45 @@ public class Scores : MonoBehaviour
                 playerMLevel = "Free Tier";
                 repsetSize = 1;
                 break;
-
             
+        }
+        scaleShards();
+
+            switch(numShards)
+        {
+            case 1: 
+            shards.transform.GetChild(0).gameObject.SetActive(true); 
+            break;
+ 
+            case 2:
+            shards.transform.GetChild(1).gameObject.SetActive(true); 
+            break; 
+
+            case 3:
+            shards.transform.GetChild(2).gameObject.SetActive(true); 
+            break; 
+
+            case 4:
+            shards.transform.GetChild(3).gameObject.SetActive(true); 
+            break; 
 
         }
+    }
+    public void scaleShards()
+    {
+        var shards = GameObject.Find("Shards");
+        /*
+        I have to scale the individual prefabs, rather than the parent that they are all connected to, 
+        so that the distance between the children doesn't scale out too.
+        */
+        //shards.gameObject.transform.localScale = new Vector3(repsetSize,repsetSize,repsetSize);
+
+
+        // I should detect how many children there are and then loop through 
+        float scaledRepSetSize = repsetSize / scaleFactor;
+        shards.transform.GetChild(0).gameObject.transform.localScale = new Vector3(scaledRepSetSize,scaledRepSetSize,scaledRepSetSize);
+        shards.transform.GetChild(1).gameObject.transform.localScale = new Vector3(scaledRepSetSize,scaledRepSetSize,scaledRepSetSize);
+        shards.transform.GetChild(2).gameObject.transform.localScale = new Vector3(scaledRepSetSize,scaledRepSetSize,scaledRepSetSize);
+        shards.transform.GetChild(3).gameObject.transform.localScale = new Vector3(scaledRepSetSize,scaledRepSetSize,scaledRepSetSize);
     }
 }

@@ -1117,9 +1117,9 @@ SpringJoint:
   m_ConnectedAnchor: {x: 3.31, y: 3.4792662, z: -3.238992}
   serializedVersion: 2
   m_Spring: 20
-  m_Damper: 100
-  m_MinDistance: 5
-  m_MaxDistance: 10
+  m_Damper: 20
+  m_MinDistance: 2
+  m_MaxDistance: 5
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -1312,9 +1312,9 @@ SpringJoint:
   m_ConnectedAnchor: {x: 0, y: 3.4792666, z: -3.238992}
   serializedVersion: 2
   m_Spring: 20
-  m_Damper: 100
-  m_MinDistance: 5
-  m_MaxDistance: 10
+  m_Damper: 20
+  m_MinDistance: 2
+  m_MaxDistance: 5
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -2776,9 +2776,9 @@ SpringJoint:
   m_ConnectedAnchor: {x: -3.1, y: 3.4792662, z: -3.238992}
   serializedVersion: 2
   m_Spring: 20
-  m_Damper: 100
-  m_MinDistance: 5
-  m_MaxDistance: 10
+  m_Damper: 20
+  m_MinDistance: 2
+  m_MaxDistance: 5
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -4580,9 +4580,9 @@ SpringJoint:
   m_ConnectedAnchor: {x: 0, y: 2.9602666, z: -6.3469915}
   serializedVersion: 2
   m_Spring: 20
-  m_Damper: 100
-  m_MinDistance: 5
-  m_MaxDistance: 10
+  m_Damper: 20
+  m_MinDistance: 2
+  m_MaxDistance: 5
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity

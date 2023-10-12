@@ -28,13 +28,7 @@ public class CollisionDetection : MonoBehaviour
             if(this.tag=="Player")
             {
                 scores.playerScore ++;
-                repsetSize = (float)scores.repsetSize/10;
-                var shards = GameObject.Find("Shards");
-                //shards.gameObject.transform.localScale = new Vector3(repsetSize,repsetSize,repsetSize);
-                shards.transform.GetChild(0).gameObject.transform.localScale = new Vector3(repsetSize,repsetSize,repsetSize);
-                shards.transform.GetChild(1).gameObject.transform.localScale = new Vector3(repsetSize,repsetSize,repsetSize);
-                shards.transform.GetChild(2).gameObject.transform.localScale = new Vector3(repsetSize,repsetSize,repsetSize);
-                shards.transform.GetChild(3).gameObject.transform.localScale = new Vector3(repsetSize,repsetSize,repsetSize);
+                //scores.scaleShards();
                 docScript.Sparkle();
                 scores.UpdateScore(scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
@@ -52,12 +46,15 @@ public class CollisionDetection : MonoBehaviour
 
         else if (other.CompareTag("shardPU"))
         {
-            Debug.Log("ShardPU hit by " + this.tag);
+           // Debug.Log("ShardPU hit by " + this.tag);
             
             scores.numShards ++;
             docScript.PUSparkle();
+            scores.UpdateScore(scores.playerScore, scores.numShards);
             uiman.UpdateScoreUI();
 
         }
     }
+
+
  }

@@ -49,9 +49,4 @@ Scores scores;
         lostUI.text = scores.RDBMSScore.ToString() + " Lost";
     }
 
-    public void Test()
-    {
-        Debug.Log("Arrived in uiman");
-    }
-
 }
