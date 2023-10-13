@@ -10,32 +10,33 @@ public class DocGen : MonoBehaviour
     public int min,max;
     public Scores scores;
 
+    public int numShardPUsDropped = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         PlaceDocs();
         PlaceRDBMS();
-        PlaceShardPickup();
-             PlaceShardPickup();
-                  PlaceShardPickup();
-                       PlaceShardPickup();
+          
     }
 
 
-    void PlaceShardPickup()
+    public void PlaceShardPickup()
     {
            shardPU = Instantiate(shardPU,GeneratedDocPostion(2f),Quaternion.identity); // using doc position becuase it's good enough
+           numShardPUsDropped ++;
     }
 
 
     void PlaceDocs()
     {
+       
         for (int i=0; i<scores.numDocs; i++)
         {
            doc = Instantiate(doc,GeneratedDocPostion(1f),Quaternion.identity);
            doc.name = "doc_"+i.ToString();
         }
-        Debug.Log("Placed Docs");
+        
     }
 
 

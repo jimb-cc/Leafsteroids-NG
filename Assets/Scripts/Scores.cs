@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class Scores : MonoBehaviour
 {
+    public DocGen docGen;
     public int playerScore;
     public string playerMLevel;
     public int RDBMSScore;
 
-    public int numDocs = 20;
-    public int numRDBMS = 3;
+    public int numDocs = 0;
+    public int numRDBMS = 0;
 
     public int numShards = 1;
     public int docsInTank = 0;
@@ -29,23 +30,23 @@ public class Scores : MonoBehaviour
         {
             case > 0 and <= 5:
                 playerMLevel = "Free Tier";
-                repsetSize = 1;
+                repsetSize = 5;
                 break;
             case > 5 and <= 10:
                 playerMLevel = "M2";
-                repsetSize = 2;
+                repsetSize = 10;
                 break;
             case > 10 and <= 20:
                 playerMLevel = "M5";
-                repsetSize = 5;
+                repsetSize = 15;
                 break;
             case > 20 and <= 30:
                 playerMLevel = "M10";
-                repsetSize = 10;
+                repsetSize = 20;
                 break;
             case > 30 and <= 40:
                 playerMLevel = "M20";
-                repsetSize = 20;
+                repsetSize = 25;
                 break;
             case > 40 and <= 50:
                 playerMLevel = "M30";
@@ -54,14 +55,17 @@ public class Scores : MonoBehaviour
             case > 50 and <= 60:
                 playerMLevel = "M40";
                 repsetSize = 40;
+                if (docGen.numShardPUsDropped<1) docGen.PlaceShardPickup();
                 break;
             case > 60 and <= 80:
                 playerMLevel = "M60";
                 repsetSize = 60;
+                if (docGen.numShardPUsDropped<2) docGen.PlaceShardPickup();
                 break;
             case > 80 and <= 100:
                 playerMLevel = "M80";
                 repsetSize = 80;
+                if (docGen.numShardPUsDropped<3) docGen.PlaceShardPickup();
                 break;
             case > 100 and <= 200:
                 playerMLevel = "M200";
@@ -79,7 +83,7 @@ public class Scores : MonoBehaviour
         }
         scaleShards();
 
-            switch(numShards)
+        switch(numShards)
         {
             case 1: 
             shards.transform.GetChild(0).gameObject.SetActive(true); 
