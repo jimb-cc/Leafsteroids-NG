@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.limworks.urpssrpackage": {
-      "version": "https://github.com/JoshuaLim007/Unity-ScreenSpaceReflections-URP.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "8d6ef2aceb8b0957efebff28d6d46c8b6e456841"
-    },
     "com.unity.burst": {
       "version": "1.8.4",
       "depth": 1,
@@ -88,6 +81,13 @@
     "com.unity.mathematics": {
       "version": "1.2.6",
       "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.1",
+      "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"

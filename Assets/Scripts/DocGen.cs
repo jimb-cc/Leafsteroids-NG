@@ -10,14 +10,19 @@ public class DocGen : MonoBehaviour
     public int min,max;
     public Scores scores;
 
+    public ConfigLoader cl;
+    public bool placed = false;
+
     public int numShardPUsDropped = 0;
 
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        PlaceDocs();
-        PlaceRDBMS();
-          
+        if (scores.dataLoaded && !placed){
+            PlaceDocs();
+            PlaceRDBMS();
+            placed = true;
+        }         
     }
 
 
@@ -42,12 +47,14 @@ public class DocGen : MonoBehaviour
 
     void PlaceRDBMS()
     {
-        for (int i=0; i<scores.numRDBMS; i++)
+        
+        //for (int i=0; i<scores.numRDBMS; i++)
+        for (int i=0; i<(int)cl.configdata["numRDBMS"]["$numberInt"]; i++)
         {
             rdbms = Instantiate(rdbms,GeneratedRDBMSPostion(),Quaternion.identity);
             rdbms.name = "rdbms_"+i.ToString();
         }
-        Debug.Log("Placed RDBMS");
+        Debug.Log("Placed "+cl.configdata["numRDBMS"]["$numberInt"].ToString()+ " RDBMS");
     }
 
     Vector3 GeneratedDocPostion(float yPos)

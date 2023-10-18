@@ -18,6 +18,8 @@ public class Scores : MonoBehaviour
     public float repsetSize = 1;
     public int scaleFactor = 10;
 
+    public bool dataLoaded = false;
+
 
 
     public void UpdateScore(int score, int numShards)

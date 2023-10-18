@@ -14,8 +14,6 @@ public TextMeshProUGUI scoreUI;
 public TextMeshProUGUI lostUI;
 public TextMeshProUGUI cluster;
 
-public CollisionDetection colldec;
-public DocGen numdocs;
 Scores scores;
 
 
