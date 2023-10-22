@@ -15,8 +15,9 @@ public class DocGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-            PlaceDocs();
             PlaceRDBMS();
+            PlaceDocs();
+
     }
 
 
@@ -45,7 +46,7 @@ public class DocGen : MonoBehaviour
         //for (int i=0; i<scores.numRDBMS; i++)
         for (int i=0; i<scores.numRDBMS; i++)
         {
-            rdbms = Instantiate(rdbms,GeneratedRDBMSPostion(),Quaternion.identity);
+            rdbms = Instantiate(rdbms,GeneratedRDBMSPostion(i),Quaternion.identity);
             rdbms.name = "rdbms_"+i.ToString();
         }
     }
@@ -58,13 +59,45 @@ public class DocGen : MonoBehaviour
         return new Vector3(x,yPos,z);
     }
 
-    Vector3 GeneratedRDBMSPostion()
+    Vector3 GeneratedRDBMSPostion(int i)
     {
         float x,y,z;
-        x = UnityEngine.Random.Range(min,max);
-        y = 0.01f;
-        z = UnityEngine.Random.Range(min,max);     
+        Debug.Log("doing RDBMS: " +i);
+        switch(i)
+        {
+            case 0:
+                x = max/2f;
+                y = 0.01f;
+                z = 0.0f;
+            break;
+
+            case 1:
+                x = min/2f;
+                y = 0.01f;
+                z = 0.0f;
+            break;
+
+            case 2:
+                x = 0.0f
+                y = 0.01f;
+                z = max/2f;
+            break;
+
+            case 3:
+                x = 0.0f
+                y = 0.01f;
+                z = min/2f;
+            break;
+
+
+            default:
+                x = UnityEngine.Random.Range(min,max);
+                y = 0.01f;
+                z = UnityEngine.Random.Range(min,max);     
+            break;
+        }
         return new Vector3(x,y,z);
+        
     }
 
 }
