@@ -38,6 +38,7 @@ public class CollisionDetection : MonoBehaviour
             {
                 docScript.BadSparkle();
                 scores.RDBMSScore ++;
+                scores.UpdateScore(scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
             }
         }

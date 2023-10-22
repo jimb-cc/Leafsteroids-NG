@@ -1,3 +1,6 @@
+
+/*
+
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
@@ -53,3 +56,4 @@ public class ConfigLoader : MonoBehaviour
 // https://us-east-1.aws.data.mongodb-api.com/app/gds-qmybd/endpoint/getconfig?secret=ssshhh
 
 
+*/

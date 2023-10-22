@@ -26,6 +26,7 @@ Scores scores;
         lostUI.text =  0 + " :RDBMS";
         cluster.text = "";
         scores = FindObjectOfType<Scores>();
+        leftUI.text = "Left: " + scores.left.ToString();
     }
 
 
@@ -48,6 +49,7 @@ Scores scores;
     public void UpdateRDBMSScoreUI()
     {
         lostUI.text = scores.RDBMSScore.ToString() + " Lost";
+        leftUI.text = "Left: " + scores.left.ToString();
     }
 
 }
