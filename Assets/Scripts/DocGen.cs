@@ -78,13 +78,13 @@ public class DocGen : MonoBehaviour
             break;
 
             case 2:
-                x = 0.0f
+                x = 0.0f;
                 y = 0.01f;
                 z = max/2f;
             break;
 
             case 3:
-                x = 0.0f
+                x = 0.0f;
                 y = 0.01f;
                 z = min/2f;
             break;
