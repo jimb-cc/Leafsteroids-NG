@@ -355,7 +355,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -30.73}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &105730616
 MonoBehaviour:
@@ -617,13 +617,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   docGen: {fileID: 1966402104}
-  cl: {fileID: 935002268}
   playerScore: 0
   playerMLevel: 
   RDBMSScore: 0
   left: 0
   numDocs: 200
-  numRDBMS: 1
+  numRDBMS: 4
   numShards: 1
   docsInTank: 0
   repsetSize: 1
@@ -16326,7 +16325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 222.5, y: -70.3}
+  m_AnchoredPosition: {x: 226.3, y: -70.3}
   m_SizeDelta: {x: 441.5, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682847006
@@ -21451,52 +21450,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930354357}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &935002266
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 935002267}
-  - component: {fileID: 935002268}
-  m_Layer: 0
-  m_Name: DataLoader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &935002267
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935002266}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.06405, y: 0.5537084, z: -16.247776}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &935002268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935002266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d6e53dbce7fd18469c5bf80a0df1356, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scores: {fileID: 285275636}
-  dataLoaded: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -21897,7 +21850,7 @@ Transform:
   - {fileID: 302492639}
   - {fileID: 1683933388}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1028523059
 GameObject:
@@ -23178,8 +23131,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 106.61, y: -30.73}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 155.4, y: -30.73}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1669754132
 GameObject:
@@ -28321,8 +28274,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -110.3, y: -30.73}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -159.5, y: -30.73}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1839449785
 MonoBehaviour:
@@ -29085,8 +29038,6 @@ MonoBehaviour:
   min: -45
   max: 45
   scores: {fileID: 285275636}
-  cl: {fileID: 935002268}
-  placed: 0
   numShardPUsDropped: 0
 --- !u!1 &2021865466
 GameObject:

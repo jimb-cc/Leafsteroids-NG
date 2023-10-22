@@ -9,16 +9,21 @@ public class Scores : MonoBehaviour
     public int playerScore;
     public string playerMLevel;
     public int RDBMSScore;
-    public int left;
-
+    
     public int numDocs = 0;
     public int numRDBMS = 0;
 
+    public int left = 0;
     public int numShards = 1;
     public int docsInTank = 0;
     public float repsetSize = 1;
     public int scaleFactor = 10;
 
+    void Start()
+    {
+       left = numDocs;
+
+    }
     public void UpdateScore(int score, int numShards)
     {
         left = numDocs - (playerScore+RDBMSScore);

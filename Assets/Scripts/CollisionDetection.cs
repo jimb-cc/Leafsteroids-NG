@@ -25,16 +25,15 @@ public class CollisionDetection : MonoBehaviour
         
         if (other.CompareTag("document"))
         {
-            if(this.tag=="Player")
+            if(this.tag=="Player" && !docScript.beingCollected)
             {
                 scores.playerScore ++;
                 docScript.Sparkle();
                 scores.UpdateScore(scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
-
             }
 
-            if(this.tag=="RDBMS")
+            if(this.tag=="RDBMS" && !docScript.beingCollected)
             {
                 docScript.BadSparkle();
                 scores.RDBMSScore ++;

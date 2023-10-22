@@ -10,7 +10,7 @@ public class DocRot : MonoBehaviour
     public int RotateSpeed;
     public ParticleSystem sparkle;
     private Vector3 scaleChange;
-    public int beingCollected=0;
+    public bool beingCollected = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class DocRot : MonoBehaviour
     {
         transform.Rotate(0, RotateSpeed * Time.deltaTime, 0);
 
-        if (beingCollected==1)
+        if (beingCollected)
         {
             scaleChange = new Vector3(0.02f, 0.02f, 0.02f);
             transform.localScale -= scaleChange;
@@ -42,19 +42,19 @@ public class DocRot : MonoBehaviour
     public void Sparkle()
     {
         sparkle.Play();
-        beingCollected = 1;
+        beingCollected = true;
     }
     public void BadSparkle()
     {
         sparkle.startColor = Color.red;
         sparkle.Play();
-        beingCollected = 1;
+        beingCollected = true;
     }
 
     public void PUSparkle()
     {
         //sparkle.Play();
-        beingCollected = 1;
+        beingCollected = true;
     }
 
 }
