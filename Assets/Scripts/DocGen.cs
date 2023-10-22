@@ -18,7 +18,8 @@ public class DocGen : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        if (scores.dataLoaded && !placed){
+        //if (scores.dataLoaded && !placed){
+          if (cl.dataLoaded && !placed){
             PlaceDocs();
             PlaceRDBMS();
             placed = true;
@@ -36,7 +37,7 @@ public class DocGen : MonoBehaviour
     void PlaceDocs()
     {
        
-        for (int i=0; i<scores.numDocs; i++)
+        for (int i=0; i<(int)cl.configdata["numDocs"]["$numberInt"]; i++)
         {
            doc = Instantiate(doc,GeneratedDocPostion(1f),Quaternion.identity);
            doc.name = "doc_"+i.ToString();

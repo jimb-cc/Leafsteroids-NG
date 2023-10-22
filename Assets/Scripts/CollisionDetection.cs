@@ -28,7 +28,6 @@ public class CollisionDetection : MonoBehaviour
             if(this.tag=="Player")
             {
                 scores.playerScore ++;
-                //scores.scaleShards();
                 docScript.Sparkle();
                 scores.UpdateScore(scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
@@ -37,17 +36,14 @@ public class CollisionDetection : MonoBehaviour
 
             if(this.tag=="RDBMS")
             {
-                //var docScript = other.GetComponent<DocRot>();
                 docScript.BadSparkle();
                 scores.RDBMSScore ++;
-                uiman.UpdateRDBMSScoreUI();
+                uiman.UpdateScoreUI();
             }
         }
 
         else if (other.CompareTag("shardPU"))
         {
-           // Debug.Log("ShardPU hit by " + this.tag);
-            
             scores.numShards ++;
             docScript.PUSparkle();
             scores.UpdateScore(scores.playerScore, scores.numShards);

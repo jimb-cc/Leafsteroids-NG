@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
 
 public TextMeshProUGUI scoreUI;
 public TextMeshProUGUI lostUI;
+public TextMeshProUGUI leftUI;
 public TextMeshProUGUI cluster;
 
 Scores scores;
@@ -21,8 +22,8 @@ Scores scores;
     // Start is called before the first frame update
     void Start()
     {
-        scoreUI.text = "Score " + 0;
-        lostUI.text =  0 + " Lost";
+        scoreUI.text = "Mongo: " + 0;
+        lostUI.text =  0 + " :RDBMS";
         cluster.text = "";
         scores = FindObjectOfType<Scores>();
     }
@@ -30,7 +31,9 @@ Scores scores;
 
     public void UpdateScoreUI()
     {
-        scoreUI.text = "Score " + scores.playerScore.ToString();
+        scoreUI.text = "Mongo: " + scores.playerScore.ToString();
+        leftUI.text = "Left: " + scores.left.ToString();
+        lostUI.text = scores.RDBMSScore.ToString() + " :RDBMS";
 
         if (scores.numShards>1) 
         { 
@@ -42,7 +45,7 @@ Scores scores;
         }
     }
  
-     public void UpdateRDBMSScoreUI()
+    public void UpdateRDBMSScoreUI()
     {
         lostUI.text = scores.RDBMSScore.ToString() + " Lost";
     }

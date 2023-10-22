@@ -6,9 +6,11 @@ using UnityEngine;
 public class Scores : MonoBehaviour
 {
     public DocGen docGen;
+    public ConfigLoader cl;
     public int playerScore;
     public string playerMLevel;
     public int RDBMSScore;
+    public int left;
 
     public int numDocs = 0;
     public int numRDBMS = 0;
@@ -18,13 +20,17 @@ public class Scores : MonoBehaviour
     public float repsetSize = 1;
     public int scaleFactor = 10;
 
-    public bool dataLoaded = false;
-
-
-
     public void UpdateScore(int score, int numShards)
     {
-
+        Debug.Log("Is data loaded? "+cl.dataLoaded);        
+        if (cl.dataLoaded) 
+        {
+            left = (int)cl.configdata["numDocs"]["$numberInt"] - (playerScore+RDBMSScore);
+        } 
+        else
+        {
+            left = 0;
+        }
         var shards = GameObject.Find("Shards");
         docsInTank = score/numShards;
         

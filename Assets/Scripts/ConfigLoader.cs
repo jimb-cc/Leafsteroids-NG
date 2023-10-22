@@ -8,6 +8,7 @@ public class ConfigLoader : MonoBehaviour
 {
     public JObject configdata;
     public Scores scores;
+    public bool dataLoaded = false;
     void Start()
     {
         StartCoroutine(GetRequest("https://us-east-1.aws.data.mongodb-api.com/app/gds-qmybd/endpoint/getconfig?secret=ssshhh"));
@@ -38,11 +39,8 @@ public class ConfigLoader : MonoBehaviour
                     configdata = JObject.Parse(webRequest.downloadHandler.text);
                     //JObject configdata = JObject.Parse(webRequest.downloadHandler.text);
                     //JArray eventdata = JArray.Parse(webRequest.downloadHandler.text);
-
-                    //{"$numberInt": "2"}
-
-                    Debug.Log(configdata["numRDBMS"]["$numberInt"]);
-                    scores.dataLoaded=true;
+                
+                    dataLoaded=true;
 
                     break;
             }
