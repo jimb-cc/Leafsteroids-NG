@@ -12,6 +12,13 @@ public class DocGen : MonoBehaviour
 
     public int numShardPUsDropped = 0;
 
+    Vector3[] RDBMSpositions = { 
+                                new Vector3 { x =  25, y = 0.01f, z =   0}, 
+                                new Vector3 { x = -25, y = 0.01f, z =   0}, 
+                                new Vector3 { x =   0, y = 0.01f, z =  25}, 
+                                new Vector3 { x =   1, y = 0.01f, z = -25} 
+                               };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +30,7 @@ public class DocGen : MonoBehaviour
 
     public void PlaceShardPickup()
     {
-           shardPU = Instantiate(shardPU,GeneratedDocPostion(2f),Quaternion.identity); // using doc position becuase it's good enough
+           shardPU = Instantiate(shardPU,GeneratedDocPostion(2f,2f),Quaternion.identity); // using doc position becuase it's good enough
            numShardPUsDropped ++;
     }
 
@@ -33,7 +40,7 @@ public class DocGen : MonoBehaviour
        
         for (int i=0; i<scores.numDocs; i++)
         {
-           doc = Instantiate(doc,GeneratedDocPostion(1f),Quaternion.identity);
+           doc = Instantiate(doc,GeneratedDocPostion(1f,2f),Quaternion.identity);
            doc.name = "doc_"+i.ToString();
         }
         
@@ -46,19 +53,34 @@ public class DocGen : MonoBehaviour
         //for (int i=0; i<scores.numRDBMS; i++)
         for (int i=0; i<scores.numRDBMS; i++)
         {
-            rdbms = Instantiate(rdbms,GeneratedRDBMSPostion(i),Quaternion.identity);
+            rdbms = Instantiate(rdbms,RDBMSpositions[i],Quaternion.identity);
             rdbms.name = "rdbms_"+i.ToString();
         }
     }
 
-    Vector3 GeneratedDocPostion(float yPos)
+    Vector3 GeneratedDocPostion(float yPos, float padding)
     {
-        float x,z;
-        x = UnityEngine.Random.Range(min,max);
-        z = UnityEngine.Random.Range(min,max);     
-        return new Vector3(x,yPos,z);
-    }
+        float x,z,dis;
+        bool tooCloseToRDBMS = false;
+        Vector3 pos;
+        do
+        {
+            x = UnityEngine.Random.Range(min,max);
+            z = UnityEngine.Random.Range(min,max); 
+            
+            pos = new Vector3(x,yPos,z);
 
+            for (int i = 0; i<scores.numRDBMS; i++)
+            {
+                dis = Vector3.Distance(pos, RDBMSpositions[i]);
+                if (dis < padding) tooCloseToRDBMS = true;
+            }
+
+        }
+        while (tooCloseToRDBMS==true);
+        return pos;
+    }
+/*
     Vector3 GeneratedRDBMSPostion(int i)
     {
         float x,y,z;
@@ -99,5 +121,5 @@ public class DocGen : MonoBehaviour
         return new Vector3(x,y,z);
         
     }
-
+*/
 }
