@@ -30,7 +30,7 @@ public class DocGen : MonoBehaviour
 
     public void PlaceShardPickup()
     {
-           shardPU = Instantiate(shardPU,GeneratedDocPostion(2f,2f),Quaternion.identity); // using doc position becuase it's good enough
+           shardPU = Instantiate(shardPU,GeneratedDocPostion(2f,2f,1),Quaternion.identity); // using doc position becuase it's good enough
            numShardPUsDropped ++;
     }
 
@@ -40,7 +40,7 @@ public class DocGen : MonoBehaviour
        
         for (int i=0; i<scores.numDocs; i++)
         {
-           doc = Instantiate(doc,GeneratedDocPostion(1f,2f),Quaternion.identity);
+           doc = Instantiate(doc,GeneratedDocPostion(1f,10f,i),Quaternion.identity);
            doc.name = "doc_"+i.ToString();
         }
         
@@ -58,68 +58,31 @@ public class DocGen : MonoBehaviour
         }
     }
 
-    Vector3 GeneratedDocPostion(float yPos, float padding)
+    Vector3 GeneratedDocPostion(float yPos, float padding, int docID)
     {
         float x,z,dis;
         bool tooCloseToRDBMS = false;
         Vector3 pos;
+        int attempt =0;
         do
-        {
+        { 
             x = UnityEngine.Random.Range(min,max);
             z = UnityEngine.Random.Range(min,max); 
             
             pos = new Vector3(x,yPos,z);
-
+            tooCloseToRDBMS=false;
             for (int i = 0; i<scores.numRDBMS; i++)
             {
                 dis = Vector3.Distance(pos, RDBMSpositions[i]);
-                if (dis < padding) tooCloseToRDBMS = true;
+                if (dis <= padding)
+                {
+                    attempt ++;
+                    tooCloseToRDBMS = true;
+                    //Debug.Log("attempt: "+attempt+" DocID: "+docID+" Go around on RDBMS "+i+": with distance "+dis+" docLoc:" +pos+ " RDBMSLoc:" +RDBMSpositions[i]);
+                } 
             }
-
         }
         while (tooCloseToRDBMS==true);
         return pos;
     }
-/*
-    Vector3 GeneratedRDBMSPostion(int i)
-    {
-        float x,y,z;
-        Debug.Log("doing RDBMS: " +i);
-        switch(i)
-        {
-            case 0:
-                x = max/2f;
-                y = 0.01f;
-                z = 0.0f;
-            break;
-
-            case 1:
-                x = min/2f;
-                y = 0.01f;
-                z = 0.0f;
-            break;
-
-            case 2:
-                x = 0.0f;
-                y = 0.01f;
-                z = max/2f;
-            break;
-
-            case 3:
-                x = 0.0f;
-                y = 0.01f;
-                z = min/2f;
-            break;
-
-
-            default:
-                x = UnityEngine.Random.Range(min,max);
-                y = 0.01f;
-                z = UnityEngine.Random.Range(min,max);     
-            break;
-        }
-        return new Vector3(x,y,z);
-        
-    }
-*/
 }
