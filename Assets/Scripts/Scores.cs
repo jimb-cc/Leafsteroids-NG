@@ -7,9 +7,9 @@ public class Scores : MonoBehaviour
 {
     public DocGen docGen;
     public GameOver gameOver;
-    public int playerScore;
-    public string playerMLevel;
-    public int RDBMSScore;
+    public static int playerScore;
+    public static string playerMLevel;
+    public static int RDBMSScore;
     
     public int numDocs = 0;
     public int numRDBMS = 0;

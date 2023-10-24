@@ -32,23 +32,23 @@ Scores scores;
 
     public void UpdateScoreUI()
     {
-        scoreUI.text = "Mongo: " + scores.playerScore.ToString();
+        scoreUI.text = "Mongo: " + Scores.playerScore.ToString();
         leftUI.text = "Left: " + scores.left.ToString();
-        lostUI.text = scores.RDBMSScore.ToString() + " :RDBMS";
+        lostUI.text = Scores.RDBMSScore.ToString() + " :RDBMS";
 
         if (scores.numShards>1) 
         { 
-            cluster.text = scores.numShards.ToString() + " Shards of " + scores.playerMLevel;
+            cluster.text = scores.numShards.ToString() + " Shards of " + Scores.playerMLevel;
         }
         else
         {
-            cluster.text = scores.playerMLevel;
+            cluster.text = Scores.playerMLevel;
         }
     }
  
     public void UpdateRDBMSScoreUI()
     {
-        lostUI.text = scores.RDBMSScore.ToString() + " Lost";
+        lostUI.text = Scores.RDBMSScore.ToString() + " Lost";
         leftUI.text = "Left: " + scores.left.ToString();
     }
 

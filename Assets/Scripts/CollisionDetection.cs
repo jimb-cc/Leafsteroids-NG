@@ -27,17 +27,17 @@ public class CollisionDetection : MonoBehaviour
         {
             if(this.tag=="Player" && !docScript.beingCollected)
             {
-                scores.playerScore ++;
+                Scores.playerScore ++;
                 docScript.Sparkle();
-                scores.UpdateScore(scores.playerScore, scores.numShards);
+                scores.UpdateScore(Scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
             }
 
             if(this.tag=="RDBMS" && !docScript.beingCollected)
             {
                 docScript.BadSparkle();
-                scores.RDBMSScore ++;
-                scores.UpdateScore(scores.playerScore, scores.numShards);
+                Scores.RDBMSScore ++;
+                scores.UpdateScore(Scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
             }
         }
@@ -46,7 +46,7 @@ public class CollisionDetection : MonoBehaviour
         {
             scores.numShards ++;
             docScript.PUSparkle();
-            scores.UpdateScore(scores.playerScore, scores.numShards);
+            scores.UpdateScore(Scores.playerScore, scores.numShards);
             uiman.UpdateScoreUI();
 
         }
