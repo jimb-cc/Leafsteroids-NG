@@ -8,8 +8,6 @@ public class GameOver : MonoBehaviour
     public void gameOver()
     {
         Debug.Log("############## GAME OVER ###############");
-        endgameswitcher.NextScene("EndGame");
-
-        
+        endgameswitcher.NextScene("EndGame");     
     }
 }
