@@ -34,6 +34,7 @@ public class CollisionDetection : MonoBehaviour
                 docScript.Sparkle();
                 scores.UpdateScore(Scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
+                EventManager.SetDataGroup("TELEMETRY", "document", other.gameObject.name, scores.playerScore, System.DateTime.UtcNow.ToString() );
                 EventManager.EmitEvent("TELEMETRY");
             }
 
