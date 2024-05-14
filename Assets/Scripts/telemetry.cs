@@ -12,7 +12,10 @@ public class Packet
     public string Name;
     public int Score;
     public int numShards;
-    public string Time;   
+    public string Time; 
+    public string position_x;
+    public string position_y;
+    public string position_z;       
 }
 
 
@@ -36,7 +39,10 @@ public class telemetry : MonoBehaviour
         packet.Name = eventData[1].ToString();
         packet.Score = eventData[2].ToInt();
         packet.numShards = eventData[3].ToInt();
-        packet.Time = eventData[4].ToString();        
+        packet.Time = eventData[4].ToString();
+        packet.position_x = eventData[5].ToString();        
+        packet.position_y = eventData[6].ToString();        
+        packet.position_z = eventData[7].ToString();        
 
         Debug.Log(JsonConvert.SerializeObject(packet));
     }

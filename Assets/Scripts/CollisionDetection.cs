@@ -11,6 +11,8 @@ public class CollisionDetection : MonoBehaviour
 {
     public float repsetSize = 0.01f;
 
+    private GameObject playerObj = null;
+
     UIManager uiman;
     Scores scores;
 
@@ -18,6 +20,7 @@ public class CollisionDetection : MonoBehaviour
     {
         scores = FindObjectOfType<Scores>(); 
         uiman = FindObjectOfType<UIManager>(); 
+        if (playerObj == null) playerObj = GameObject.FindGameObjectWithTag("Player");
 
     }
     private void OnTriggerEnter(Collider other)
@@ -34,9 +37,22 @@ public class CollisionDetection : MonoBehaviour
                 scores.UpdateScore(Scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
                 // send telemetry packet
-                EventManager.SetDataGroup("TELEMETRY", "document", other.gameObject.name, Scores.playerScore, scores.numShards, System.DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff") );
+                EventManager.SetDataGroup(
+                    "TELEMETRY", 
+                    "document", 
+                    other.gameObject.name, 
+                    Scores.playerScore, 
+                    scores.numShards, 
+                    System.DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+                    playerObj.transform.position.x.ToString(),
+                    playerObj.transform.position.y.ToString(),
+                    playerObj.transform.position.z.ToString() 
+                );
+                
+                
+                
                 EventManager.EmitEvent("TELEMETRY");
-        }
+            }
 
             if(this.tag=="RDBMS" && !docScript.beingCollected)
             {
@@ -54,7 +70,21 @@ public class CollisionDetection : MonoBehaviour
             scores.UpdateScore(Scores.playerScore, scores.numShards);
             uiman.UpdateScoreUI();
             // send telemetry packet
-            EventManager.SetDataGroup("TELEMETRY", "shardPU", other.gameObject.name, Scores.playerScore, scores.numShards, System.DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff") );
+            EventManager.SetDataGroup(
+                    "TELEMETRY", 
+                    "shardPU", 
+                    other.gameObject.name, 
+                    Scores.playerScore, 
+                    scores.numShards, 
+                    System.DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+                    playerObj.transform.position.x.ToString(),
+                    playerObj.transform.position.y.ToString(),
+                    playerObj.transform.position.z.ToString() 
+            );
+
+            
+            
+            
             EventManager.EmitEvent("TELEMETRY");
 
         }
