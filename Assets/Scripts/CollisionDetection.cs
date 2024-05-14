@@ -34,8 +34,18 @@ public class CollisionDetection : MonoBehaviour
                 docScript.Sparkle();
                 scores.UpdateScore(Scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
-                EventManager.SetDataGroup("TELEMETRY", "document", other.gameObject.name, scores.playerScore, System.DateTime.UtcNow.ToString() );
+                EventManager.SetDataGroup("TELEMETRY", "document", other.gameObject.name, Scores.playerScore, System.DateTime.UtcNow.ToString() );
                 EventManager.EmitEvent("TELEMETRY");
+
+                /*                
+                EventManager.SetIndexedDataGroup(
+                    "TELEMETRY_I",
+                    new EventManager.DataGroup { id = "strength", data = 100 },
+                    new EventManager.DataGroup { id = "coins", data = 250 },
+                    new EventManager.DataGroup { id = "bonus", data = "Iron Shield" }
+                );
+                EventManager.EmitEvent("TELEMETRY_I"); 
+                */
             }
 
             if(this.tag=="RDBMS" && !docScript.beingCollected)
