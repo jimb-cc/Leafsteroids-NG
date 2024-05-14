@@ -34,7 +34,7 @@ public class CollisionDetection : MonoBehaviour
                 scores.UpdateScore(Scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
                 // send telemetry packet
-                EventManager.SetDataGroup("TELEMETRY", "document", other.gameObject.name, Scores.playerScore, scores.numShards, System.DateTime.UtcNow.ToString("hh.mm.ss.ffffff") );
+                EventManager.SetDataGroup("TELEMETRY", "document", other.gameObject.name, Scores.playerScore, scores.numShards, System.DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff") );
                 EventManager.EmitEvent("TELEMETRY");
         }
 
@@ -54,7 +54,7 @@ public class CollisionDetection : MonoBehaviour
             scores.UpdateScore(Scores.playerScore, scores.numShards);
             uiman.UpdateScoreUI();
             // send telemetry packet
-            EventManager.SetDataGroup("TELEMETRY", "shardPU", other.gameObject.name, Scores.playerScore, scores.numShards, System.DateTime.UtcNow.ToString("hh.mm.ss.ffffff") );
+            EventManager.SetDataGroup("TELEMETRY", "shardPU", other.gameObject.name, Scores.playerScore, scores.numShards, System.DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff") );
             EventManager.EmitEvent("TELEMETRY");
 
         }
