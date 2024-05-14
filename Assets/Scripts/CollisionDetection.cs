@@ -22,7 +22,6 @@ public class CollisionDetection : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Name of the object: " + other.gameObject.name + " it's tag is " + other.gameObject.tag + "and this things tag is: " + this.tag);
         
         var docScript = other.GetComponent<DocRot>();
         
@@ -34,19 +33,10 @@ public class CollisionDetection : MonoBehaviour
                 docScript.Sparkle();
                 scores.UpdateScore(Scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
-                EventManager.SetDataGroup("TELEMETRY", "document", other.gameObject.name, Scores.playerScore, System.DateTime.UtcNow.ToString() );
+                // send telemetry packet
+                EventManager.SetDataGroup("TELEMETRY", "document", other.gameObject.name, Scores.playerScore, scores.numShards, System.DateTime.UtcNow.ToString("hh.mm.ss.ffffff") );
                 EventManager.EmitEvent("TELEMETRY");
-
-                /*                
-                EventManager.SetIndexedDataGroup(
-                    "TELEMETRY_I",
-                    new EventManager.DataGroup { id = "strength", data = 100 },
-                    new EventManager.DataGroup { id = "coins", data = 250 },
-                    new EventManager.DataGroup { id = "bonus", data = "Iron Shield" }
-                );
-                EventManager.EmitEvent("TELEMETRY_I"); 
-                */
-            }
+        }
 
             if(this.tag=="RDBMS" && !docScript.beingCollected)
             {
@@ -63,6 +53,9 @@ public class CollisionDetection : MonoBehaviour
             docScript.PUSparkle();
             scores.UpdateScore(Scores.playerScore, scores.numShards);
             uiman.UpdateScoreUI();
+            // send telemetry packet
+            EventManager.SetDataGroup("TELEMETRY", "shardPU", other.gameObject.name, Scores.playerScore, scores.numShards, System.DateTime.UtcNow.ToString("hh.mm.ss.ffffff") );
+            EventManager.EmitEvent("TELEMETRY");
 
         }
     }
