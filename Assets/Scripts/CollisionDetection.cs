@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using TigerForge; //Easy Event Manager
 
 public class CollisionDetection : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class CollisionDetection : MonoBehaviour
     {
         scores = FindObjectOfType<Scores>(); 
         uiman = FindObjectOfType<UIManager>(); 
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -32,6 +34,7 @@ public class CollisionDetection : MonoBehaviour
                 docScript.Sparkle();
                 scores.UpdateScore(Scores.playerScore, scores.numShards);
                 uiman.UpdateScoreUI();
+                EventManager.EmitEvent("TELEMETRY");
             }
 
             if(this.tag=="RDBMS" && !docScript.beingCollected)
