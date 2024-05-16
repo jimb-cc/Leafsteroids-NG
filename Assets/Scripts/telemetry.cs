@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using TigerForge; //easyEvent Manager
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -45,6 +46,25 @@ public class telemetry : MonoBehaviour
         packet.position_z = eventData[7].ToString();        
 
         Debug.Log(JsonConvert.SerializeObject(packet));
+
+        StartCoroutine(Upload(packet));
+    }
+
+    IEnumerator Upload(Packet packet)
+    {
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost:4567/v1/telemetry/", JsonConvert.SerializeObject(packet), "application/json"))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError(www.error);
+            }
+            else
+            {
+                Debug.Log("Form upload complete!");
+            }
+        }
     }
 }
 
