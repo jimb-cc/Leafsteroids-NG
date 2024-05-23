@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 
-
 // fonts come from: https://fontesk.com/nice-tango-font/
 
 public class UIManager : MonoBehaviour
@@ -17,6 +16,9 @@ public TextMeshProUGUI cluster;
 public TextMeshProUGUI timerUI;
 
 Scores scores;
+ PlayerProfile playerProfile;
+
+
 GameTimer gametimer;
 
 
@@ -26,6 +28,7 @@ GameTimer gametimer;
         scoreUI.text = "Mongo: " + 0;
         lostUI.text =  0 + " :RDBMS";
         cluster.text = "";
+        playerProfile = FindObjectOfType<PlayerProfile>();
         scores = FindObjectOfType<Scores>();
         gametimer = FindObjectOfType<GameTimer>();
         leftUI.text = "Left: " + scores.left.ToString();

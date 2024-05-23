@@ -5,10 +5,13 @@ using UnityEngine.Networking;
 using TigerForge; //easyEvent Manager
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using JetBrains.Annotations;
+using System.Security.Cryptography;
 
 
 public class Packet
 {
+    public string playerName;
     public string Type;
     public string Name;
     public int Score;
@@ -22,12 +25,13 @@ public class Packet
 
 public class telemetry : MonoBehaviour
 {
-    
+public PlayerProfile playerProfile;    
 
     // Start is called before the first frame update
     void Start()
     {
         EventManager.StartListening("TELEMETRY", ProcessTelemetry);
+        playerProfile = FindObjectOfType<PlayerProfile>();
     }
 
     void ProcessTelemetry()
@@ -36,6 +40,7 @@ public class telemetry : MonoBehaviour
 
         Packet packet = new Packet();
 
+        packet.playerName = playerProfile.pp.Name;
         packet.Type = eventData[0].ToString();
         packet.Name = eventData[1].ToString();
         packet.Score = eventData[2].ToInt();

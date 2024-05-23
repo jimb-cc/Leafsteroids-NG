@@ -20,10 +20,11 @@ public class Scores : MonoBehaviour
     public float repsetSize = 1;
     public int scaleFactor = 10;
 
+    public string playerName;
+
     void Start()
     {
-       left = numDocs;
-
+        left = numDocs;
     }
     public void UpdateScore(int score, int numShards)
     {
@@ -132,3 +133,4 @@ public class Scores : MonoBehaviour
         shards.transform.GetChild(3).gameObject.transform.localScale = new Vector3(scaledRepSetSize,scaledRepSetSize,scaledRepSetSize);
     }
 }
+
