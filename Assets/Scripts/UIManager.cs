@@ -16,7 +16,7 @@ public TextMeshProUGUI cluster;
 public TextMeshProUGUI timerUI;
 
 Scores scores;
- PlayerProfile playerProfile;
+public PlayerProfile playerProfile;   
 
 
 GameTimer gametimer;
@@ -28,9 +28,9 @@ GameTimer gametimer;
         scoreUI.text = "Mongo: " + 0;
         lostUI.text =  0 + " :RDBMS";
         cluster.text = "";
-        playerProfile = FindObjectOfType<PlayerProfile>();
         scores = FindObjectOfType<Scores>();
         gametimer = FindObjectOfType<GameTimer>();
+        playerProfile = FindObjectOfType<PlayerProfile>();
         leftUI.text = "Left: " + scores.left.ToString();
         timerUI.text = gametimer.arenaTime.ToString();
     }

@@ -8,8 +8,9 @@ public class Profile
 {
     public string Name;
     public string SessionID;
-    public int Score;
-    public int NumShards;
+    public string GameID;
+    public int Event;
+
 }
 
 
@@ -26,7 +27,7 @@ public class PlayerProfile : MonoBehaviour
 
     public void Start()
     {
-        CreatePlayerProfile();
+        //CreatePlayerProfile();
     }
 
     public void GetPlayerProfileName(TMP_InputField name)
@@ -36,15 +37,22 @@ public class PlayerProfile : MonoBehaviour
         Debug.Log("Player profile found: " + pp.Name + "!");
     }
 
+
+/*
+    public void GetPlayerProfileEvent(TMP_InputField event)
+    {
+        pp.Event = event.text;
+        Debug.Log("Player event found: " + pp.Event + "!");
+    }
+
     public void CreatePlayerProfile()
     {
         pp.Name = "PlayerName";
         pp.SessionID = "SessionID";
-        pp.Score = 12345;
-        pp.NumShards = 2;
-
+        pp.GameID = "GameID";
         Debug.Log("Player profile found: " + pp.Name + "!");
         //get name from input field
 
     }
+*/
 }
