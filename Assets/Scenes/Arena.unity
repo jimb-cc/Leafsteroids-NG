@@ -690,7 +690,7 @@ MonoBehaviour:
   gameOver: {fileID: 369148409}
   playerProfile: {fileID: 0}
   GameTimer: {fileID: 0}
-  numDocs: 20
+  numDocs: 1
   numRDBMS: 4
   numShards: 1
   docsInTank: 0
