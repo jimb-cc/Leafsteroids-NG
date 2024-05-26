@@ -31,7 +31,7 @@ GameTimer gametimer;
         scores = FindObjectOfType<Scores>();
         gametimer = FindObjectOfType<GameTimer>();
         playerProfile = FindObjectOfType<PlayerProfile>();
-        leftUI.text = "Left: " + scores.left.ToString();
+        leftUI.text = "Left: " + Scores.left.ToString();
         timerUI.text = gametimer.arenaTime.ToString();
     }
 
@@ -39,7 +39,7 @@ GameTimer gametimer;
     public void UpdateScoreUI()
     {
         scoreUI.text = "Mongo: " + Scores.playerScore.ToString();
-        leftUI.text = "Left: " + scores.left.ToString();
+        leftUI.text = "Left: " + Scores.left.ToString();
         lostUI.text = Scores.RDBMSScore.ToString() + " :RDBMS";
         if (scores.numShards>1) 
         { 
@@ -62,7 +62,7 @@ GameTimer gametimer;
     public void UpdateRDBMSScoreUI()
     {
         lostUI.text = Scores.RDBMSScore.ToString() + " Lost";
-        leftUI.text = "Left: " + scores.left.ToString();
+        leftUI.text = "Left: " + Scores.left.ToString();
     }
 
 }

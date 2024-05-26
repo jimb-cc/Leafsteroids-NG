@@ -7,6 +7,8 @@ public class Scores : MonoBehaviour
 {
     public DocGen docGen;
     public GameOver gameOver;
+    public PlayerProfile playerProfile;
+    public GameTimer GameTimer;
     public static int playerScore;
     public static string playerMLevel;
     public static int RDBMSScore;
@@ -14,7 +16,7 @@ public class Scores : MonoBehaviour
     public int numDocs = 0;
     public int numRDBMS = 0;
 
-    public int left = 0;
+    public static int left = 0;
     public int numShards = 1;
     public int docsInTank = 0;
     public float repsetSize = 1;
@@ -25,6 +27,9 @@ public class Scores : MonoBehaviour
     void Start()
     {
         left = numDocs;
+        playerProfile = FindObjectOfType<PlayerProfile>();
+        GameTimer = FindObjectOfType<GameTimer>();
+        
     }
     public void UpdateScore(int score, int numShards)
     {
@@ -32,6 +37,8 @@ public class Scores : MonoBehaviour
    
         if (left == 0)
         {
+            playerProfile.pp.lastScore = playerScore;
+            playerProfile.pp.lastGameTime = (int)GameTimer.arenaTime;
             gameOver.gameOver();
         }
   

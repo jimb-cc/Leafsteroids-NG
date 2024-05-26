@@ -688,13 +688,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   docGen: {fileID: 1966402104}
   gameOver: {fileID: 369148409}
-  numDocs: 200
+  playerProfile: {fileID: 0}
+  GameTimer: {fileID: 0}
+  numDocs: 20
   numRDBMS: 4
-  left: 0
   numShards: 1
   docsInTank: 0
   repsetSize: 1
   scaleFactor: 10
+  playerName: 
 --- !u!4 &285275637
 Transform:
   m_ObjectHideFlags: 0
@@ -16835,6 +16837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26828acdeab403f48a0f6c4c4ab0aa10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerProfile: {fileID: 0}
 --- !u!4 &717203487
 Transform:
   m_ObjectHideFlags: 0
@@ -23248,6 +23251,7 @@ MonoBehaviour:
   leftUI: {fileID: 105730616}
   cluster: {fileID: 682847006}
   timerUI: {fileID: 1233486266}
+  playerProfile: {fileID: 0}
 --- !u!114 &1367474327
 MonoBehaviour:
   m_ObjectHideFlags: 0

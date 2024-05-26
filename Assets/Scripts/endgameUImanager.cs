@@ -17,7 +17,7 @@ public class endgameUImanager : MonoBehaviour
     {
         playerProfile = FindObjectOfType<PlayerProfile>();
         scores = FindObjectOfType<Scores>();
-        congratsUI.text = "Congrats " + playerProfile.pp.Name + " you scored " + Scores.playerScore.ToString() + " points!";
+        congratsUI.text = "Congrats " + playerProfile.pp.Name + " you scored " + playerProfile.pp.lastScore + " in " +playerProfile.pp.lastGameTime  + " seconds!";
     }
 
 }

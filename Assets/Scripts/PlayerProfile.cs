@@ -10,7 +10,8 @@ public class Profile
     public string SessionID;
     public string GameID;
     public int Event;
-
+    public int lastScore;
+    public int lastGameTime;
 }
 
 
