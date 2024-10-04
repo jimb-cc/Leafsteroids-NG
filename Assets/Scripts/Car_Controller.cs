@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using Terresquall;
+
 
 public class Car_Controller : MonoBehaviour
 {
@@ -296,7 +298,8 @@ public class Car_Controller : MonoBehaviour
         if(Car_Speed_In_KPH < Maximum_Speed && Car_Started){ //if the car's current speed is less than the maximum speed
             //Let car move forward and backward
             foreach(WheelCollider Wheel in Back_Wheels){
-                Wheel.motorTorque = Input.GetAxis("Vertical") * ((Motor_Torque * 5)/(Back_Wheels.Count + Front_Wheels.Count));
+                //Wheel.motorTorque = Input.GetAxis("Vertical") * ((Motor_Torque * 5)/(Back_Wheels.Count + Front_Wheels.Count));
+                Wheel.motorTorque = VirtualJoystick.GetAxis("Vertical",1) * ((Motor_Torque * 5)/(Back_Wheels.Count + Front_Wheels.Count));
             }
         }
 
@@ -310,7 +313,8 @@ public class Car_Controller : MonoBehaviour
         //Making The Car Turn/Steer
         if(Car_Started){
             foreach(WheelCollider Wheel in Front_Wheels){
-                Wheel.steerAngle = Input.GetAxis("Horizontal") * Max_Steer_Angle; //Turn the wheels
+                //Wheel.steerAngle = Input.GetAxis("Horizontal") * Max_Steer_Angle; //Turn the wheels
+                Wheel.steerAngle = VirtualJoystick.GetAxis("Horizontal") * Max_Steer_Angle; //Turn the wheels
             }
         }
 

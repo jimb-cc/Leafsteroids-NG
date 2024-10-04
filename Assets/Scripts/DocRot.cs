@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+// waves-> https://www.youtube.com/watch?v=5EyL0WpjdI8
 // LERP -> https://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/#lerp_rotation
 
 public class DocRot : MonoBehaviour
