@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 
 public class Profile
 {
-    public string Name;
-    public string SessionID;
-    public string GameID;
-    public int Event;
+    public string name;
+    public string sessionID;
+    public string gameID;
+    public string eventID;
     public int lastScore;
     public int lastGameTime;
 }
@@ -28,32 +29,29 @@ public class PlayerProfile : MonoBehaviour
 
     public void Start()
     {
-        //CreatePlayerProfile();
+        pp.name = "Player";
+        pp.sessionID = "SessionID";
+        pp.gameID = "GameID";
+        pp.eventID = "EventID";
+        pp.lastScore = 0;
+        pp.lastGameTime = 0;
     }
 
     public void GetPlayerProfileName(TMP_InputField name)
     {
         //string text = inputField.GetComponent<TMP_InputField>().text;
-        pp.Name = name.text;
-        Debug.Log("Player profile found: " + pp.Name + "!");
+        pp.name = name.text;
+        pp.sessionID = "SessionID";
+        pp.gameID = "GameID";
+        Debug.Log(JsonUtility.ToJson(pp, true));
     }
 
-
-/*
-    public void GetPlayerProfileEvent(TMP_InputField event)
+    public void GetPlayerProfileEventID(string eventID)
     {
-        pp.Event = event.text;
-        Debug.Log("Player event found: " + pp.Event + "!");
+        //string text = inputField.GetComponent<TMP_InputField>().text;
+        pp.eventID = eventID;
     }
 
-    public void CreatePlayerProfile()
-    {
-        pp.Name = "PlayerName";
-        pp.SessionID = "SessionID";
-        pp.GameID = "GameID";
-        Debug.Log("Player profile found: " + pp.Name + "!");
-        //get name from input field
 
-    }
-*/
+
 }

@@ -40,7 +40,7 @@ public PlayerProfile playerProfile;
 
         Packet packet = new Packet();
 
-        packet.playerName = playerProfile.pp.Name;
+        packet.playerName = playerProfile.pp.name;
         packet.Type = eventData[0].ToString();
         packet.Name = eventData[1].ToString();
         packet.Score = eventData[2].ToInt();

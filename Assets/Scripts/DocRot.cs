@@ -46,7 +46,8 @@ public class DocRot : MonoBehaviour
     }
     public void BadSparkle()
     {
-        sparkle.startColor = Color.red;
+        var main = sparkle.main;
+        main.startColor = Color.red;
         sparkle.Play();
         beingCollected = true;
     }
